@@ -11,17 +11,17 @@
  */
 int infinite_while(void)
 {
-    while (1)
-    {
-        sleep(1);
-    }
-    return (0);
+	while (1)
+	{
+		sleep(1);
+	}
+	return (0);
 }
 /**
  * main : create zombie processes.
  * Return : 0.
  */
-int main (void)
+int main(void)
 {
 	pid_t pid;
 	char i = 0;
