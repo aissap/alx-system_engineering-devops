@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #Bash script that displays the content of the file /etc/passwd.
+#Only the username, user id, and user home directory
 
 while read -r psswd; do
 	echo "$passwd" | cut -d ':' -f1,3,6
