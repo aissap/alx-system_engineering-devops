@@ -9,21 +9,8 @@ sudo apt-get install nginx -y
 
 echo -e "\nSetting up some minor stuff...\n"
 
-# Start Nginx service
-sudo service nginx start
-
-# Allow Nginx on the firewall
-sudo ufw allow 'Nginx HTTP'
-
-# Give the user ownership to website files for easy editing
-sudo chown -R "$USER":"$USER" /var/www/html
-sudo chmod -R 755 /var/www
-
-# Backup default index
-cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
-
-# Create a new index
-echo -e "<!DOCTYPE html>\n<html>\n<head>\n    <title>Hello World Page</title>\n</head>\n<body>\n    <h1>Hello World!</h1>\n</body>\n</html>" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+# Create a new index with only "Hello World!"
+echo -e "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
 
 # Restart Nginx
 sudo service nginx restart
