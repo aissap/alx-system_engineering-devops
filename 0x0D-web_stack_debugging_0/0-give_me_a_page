@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Start Apache and return a page with Hello Holberton
+
+# Install Apache if not already installed
+apt-get update
+apt-get install -y apache2
+
+# Create Hello Holberton page
+echo "Hello Holberton" > /var/www/html/index.html
+
+# Restart Apache
+service apache2 restart
