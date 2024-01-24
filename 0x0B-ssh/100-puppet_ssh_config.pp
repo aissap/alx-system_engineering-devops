@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
+#Connect without password
 
 file { '/etc/ssh/sshd_config':
   ensure  => present,
-  content => epp('puppet/templates/sshd_config.epp'),
 }
 
-file { '/etc/ssh/ssh_config':
-  ensure  => present,
-  content => epp('puppet/templates/ssh_config.epp'),
+file_line { '/etc/ssh/ssh_config':
+	path => '/etc/ssh/ssh_config',
+	line => 'PasswordAuthentication no',
+}
+
+file_line { 'Identity file':
+        path	=> '/etc/ssh/ssh_config',
+        line	=> 'IdentityFile ~/.ssh/school',
+	match	=> '^#IdentityFile',
 }
