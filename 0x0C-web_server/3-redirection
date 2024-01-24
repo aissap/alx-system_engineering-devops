@@ -10,15 +10,14 @@ echo -e "\nSetting up Nginx and redirection.\n"
 
 # Create a custom Nginx configuration file for redirection
 echo "server {
-    listen 80;
+	listen 80;
 
-    ubuntu;
+	ubuntu;
 
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
+	location /redirect_me {
+	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+}
 
-    # ... (other server configurations)
 }" | sudo tee /etc/nginx/sites-available/redirect_me > /dev/null
 
 # Create a symbolic link to enable the site
