@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Bash script to install and configure HAProxy as a load balancer on Ubuntu
 
+
 # Install HAProxy
 sudo apt-get update
 sudo apt-get install -y haproxy
