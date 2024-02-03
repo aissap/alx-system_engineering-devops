@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+frontend http_front
+    bind *:80
+    bind *:443 ssl crt /etc/ssl/certs/aissugar.tech
+    reqadd X-Forwarded-Proto:\ https
+    acl is_ssl hdr(X-Forwarded-Proto) https
+    http-request redirect scheme https unless is_ssl
+    default_backend http_back
+
+backend http_back
+    server web01 18.206.197.184:80 check
+    server web02 54.237.37.228:80 check
