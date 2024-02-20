@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 #Connect without password
 
-file { '/etc/ssh/sshd_config':
+file { '/etc/ssh/ssh_config':
   ensure  => present,
 }
-
 file_line { '/etc/ssh/ssh_config':
 	path => '/etc/ssh/ssh_config',
 	line => 'PasswordAuthentication no',
