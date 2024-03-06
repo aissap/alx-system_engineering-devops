@@ -18,5 +18,7 @@ def top_ten(subreddit):
 
 
 if __name__ == "__main__":
-    subreddit = input("Enter subreddit name: ")
-    top_ten(subreddit)
+    if len(sys.argv) < 2:
+        print("Please pass an argument for the subreddit to search.")
+    else:
+        top_ten(sys.argv[1])
