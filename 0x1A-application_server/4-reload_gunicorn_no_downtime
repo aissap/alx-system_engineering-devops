@@ -2,7 +2,7 @@
 # Reload Gunicorn in a graceful way.
 
 
-# Find Gunicorn process IDs
+# Find Gunicorn process
 gunicorn_pids=$(pgrep gunicorn)
 
 if [ -z "$gunicorn_pids" ]; then
@@ -16,7 +16,7 @@ for pid in $gunicorn_pids; do
     kill -HUP "$pid"
 done
 
-# Wait for old workers to finish processing
+# Wait for old workers to finish
 echo "Waiting for old workers to finish processing..."
 wait
 
